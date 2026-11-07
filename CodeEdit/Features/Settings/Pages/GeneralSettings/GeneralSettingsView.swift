@@ -39,6 +39,7 @@ struct GeneralSettingsView: View {
                 fileIconStyle
                 showEditorJumpBar
                 dimEditorsWithoutFocus
+                showStatusBarFileInfo
                 navigatorTabBarPosition
                 inspectorTabBarPosition
             }
@@ -111,6 +112,10 @@ private extension GeneralSettingsView {
 
     var dimEditorsWithoutFocus: some View {
         Toggle("Dim editors without focus", isOn: $settings.dimEditorsWithoutFocus)
+    }
+
+    var showStatusBarFileInfo: some View {
+        Toggle("Show File Info in Status Bar", isOn: $settings.showStatusBarFileInfo)
     }
 
     var fileExtensions: some View {

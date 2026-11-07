@@ -22,6 +22,9 @@ struct StatusBarView: View {
     @Environment(\.controlActiveState)
     private var controlActive
 
+    @AppSettings(\.general.showStatusBarFileInfo)
+    private var showStatusBarFileInfo
+
     @EnvironmentObject private var utilityAreaViewModel: UtilityAreaViewModel
 
     static var height: CGFloat {
@@ -65,7 +68,9 @@ struct StatusBarView: View {
 //            StatusBarBreakpointButton()
 //            StatusBarDivider()
             Spacer()
-            StatusBarFileInfoView()
+            if showStatusBarFileInfo {
+                StatusBarFileInfoView()
+            }
             StatusBarCursorPositionLabel()
             StatusBarDivider()
             StatusBarToggleUtilityAreaButton()

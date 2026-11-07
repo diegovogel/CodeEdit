@@ -29,6 +29,7 @@ extension SettingsData {
                 "Tab Bar Style",
                 "Show Jump Bar",
                 "Dim editors without focus",
+                "Show File Info in Status Bar",
                 "Navigator Tab Bar Position",
                 "Inspector Tab Bar Position",
                 "Show Issues",
@@ -56,6 +57,9 @@ extension SettingsData {
 
         /// Dims editors without focus
         var dimEditorsWithoutFocus: Bool = false
+
+        /// Show the file size and image dimensions in the status bar
+        var showStatusBarFileInfo: Bool = true
 
         /// The show file extensions behavior of the app
         var fileExtensionsVisibility: FileExtensionsVisibility = .showAll
@@ -123,6 +127,10 @@ extension SettingsData {
                 Bool.self,
                 forKey: .dimEditorsWithoutFocus
             ) ?? false
+            self.showStatusBarFileInfo = try container.decodeIfPresent(
+                Bool.self,
+                forKey: .showStatusBarFileInfo
+            ) ?? true
             self.fileExtensionsVisibility = try container.decodeIfPresent(
                 FileExtensionsVisibility.self,
                 forKey: .fileExtensionsVisibility
