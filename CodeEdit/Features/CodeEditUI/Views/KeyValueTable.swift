@@ -17,8 +17,8 @@ private struct NewListTableItemView<HeaderView: View>: View {
     @Environment(\.dismiss)
     var dismiss
 
-    @State private var key = ""
-    @State private var value = ""
+    @State private var key: String
+    @State private var value: String
 
     let keyColumnName: String
     let valueColumnName: String
